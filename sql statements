@@ -1,0 +1,215 @@
+mysql> create database names;
+Query OK, 1 row affected (0.15 sec)
+
+mysql> use name;
+Database changed
+
+ create table Kanishk(name varchar(10), roll varchar(5));
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> insert into Kanishk(name, roll) values ("kanishk",351);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Kanishk(name, roll) values ("muskan", 352);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Kanishk(name, roll) values ("rishik", 353);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into Kanishk(name, roll) values ("pranjal", 19);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into Kanishk(name, roll) values ("nitin", 22);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from Kanishk;
++---------+------+
+| name    | roll |
++---------+------+
+| kanishk | 351  |
+| muskan  | 352  |
+| rishik  | 353  |
+| pranjal | 19   |
+| nitin   | 22   |
++---------+------+
+5 rows in set (0.00 sec)
+
+ select name from Kanishk;
++---------+
+| name    |
++---------+
+| kanishk |
+| muskan  |
+| rishik  |
+| pranjal |
+| nitin   |
++---------+
+5 rows in set (0.00 sec)
+
+ select * from Kanishk where name = "kanishk";
++---------+------+
+| name    | roll |
++---------+------+
+| kanishk | 351  |
++---------+------+
+1 row in set (0.00 sec)
+
+alter table Kanishk add(age varchar(3));
+Query OK, 0 rows affected (0.40 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update Kanishk set age = 19 where roll = 351;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set age = 18 where roll = 352;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set age = 20 where roll = 353;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set age = 21 where roll = 19;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set age = 19 where roll = 22;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Kanishk;
++---------+------+------+
+| name    | roll | age  |
++---------+------+------+
+| kanishk | 351  | 19   |
+| muskan  | 352  | 18   |
+| rishik  | 353  | 20   |
+| pranjal | 19   | 21   |
+| nitin   | 22   | 19   |
++---------+------+------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct age from Kanishk;
++------+
+| age  |
++------+
+| 19   |
+| 18   |
+| 20   |
+| 21   |
++------+
+4 rows in set (0.00 sec)
+
+mysql> alter table Kanishk add(phone varchar(10));
+Query OK, 0 rows affected (0.50 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update Kanishk set phone = 123456789 where roll = 351;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set phone = 132123129 where roll = 352;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set phone = 234543523 where roll = 353;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set phone = 657463446 where roll = 19;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Kanishk set phone = 453453462 where roll = 22;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Kanishk;
++---------+------+------+-----------+
+| name    | roll | age  | phone     |
++---------+------+------+-----------+
+| kanishk | 351  | 19   | 123456789 |
+| muskan  | 352  | 18   | 132123129 |
+| rishik  | 353  | 20   | 234543523 |
+| pranjal | 19   | 21   | 657463446 |
+| nitin   | 22   | 19   | 453453462 |
++---------+------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Kanishk order by phone;
++---------+------+------+-----------+
+| name    | roll | age  | phone     |
++---------+------+------+-----------+
+| kanishk | 351  | 19   | 123456789 |
+| muskan  | 352  | 18   | 132123129 |
+| rishik  | 353  | 20   | 234543523 |
+| nitin   | 22   | 19   | 453453462 |
+| pranjal | 19   | 21   | 657463446 |
++---------+------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Kanishk order by phone desc;
++---------+------+------+-----------+
+| name    | roll | age  | phone     |
++---------+------+------+-----------+
+| pranjal | 19   | 21   | 657463446 |
+| nitin   | 22   | 19   | 453453462 |
+| rishik  | 353  | 20   | 234543523 |
+| muskan  | 352  | 18   | 132123129 |
+| kanishk | 351  | 19   | 123456789 |
++---------+------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create table nr as select name, roll from Kanishk;
+Query OK, 5 rows affected (0.79 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from nr;
++---------+------+
+| name    | roll |
++---------+------+
+| kanishk | 351  |
+| muskan  | 352  |
+| rishik  | 353  |
+| pranjal | 19   |
+| nitin   | 22   |
++---------+------+
+5 rows in set (0.00 sec)
+
+mysql> drop table nr;
+Query OK, 0 rows affected (0.59 sec)
+
+mysql> select * from nr;
+ERROR 1146 (42S02): Table 'name.nr' doesn't exist
+
+mysql> delete from Kanishk where roll = 19;
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from Kanishk;
++---------+------+------+-----------+
+| name    | roll | age  | phone     |
++---------+------+------+-----------+
+| kanishk | 351  | 19   | 123456789 |
+| muskan  | 352  | 18   | 132123129 |
+| rishik  | 353  | 20   | 234543523 |
+| nitin   | 22   | 19   | 453453462 |
++---------+------+------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> create table tablename1 as select name, roll from Kanishk;
+Query OK, 4 rows affected (0.87 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> delete from tablename1;
+Query OK, 4 rows affected (0.10 sec)
+
+mysql> select * from tablename1;
+Empty set (0.00 sec)
+
+
+mysql> truncate table tablename2;
+Query OK, 0 rows affected (0.94 sec)
+
+mysql> select * from tablename2;
+Empty set (0.00 sec)
